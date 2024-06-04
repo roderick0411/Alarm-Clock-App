@@ -1,0 +1,122 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --main-bg-color: #fffca3;
+    ---font-color-dark: black;
+    ---font-color-light: #FFFAE6;
+    ---button-color-primary: #D5FFE4;
+    ---button-color-secondary: black;
+
+}
+
+body {
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    /* color: var(); */
+}
+
+main {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    width: 50rem;
+    margin: auto;
+    position: relative;
+    align-items: center;
+    background-color: var(--main-bg-color);
+    border: 4px solid black;
+    border-radius: 2rem;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.transitioned {
+    transition: 1s ease-out!important;
+}
+
+.translate-initial {
+    transform: translateX(0)!important;
+}
+
+.squeeze {
+    width: 0;
+}
+
+.clock-and-time {
+    display: flex;
+    align-items: end;
+}
+
+.set-alarm {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1rem;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.alarms {
+    flex-basis: 0;
+    flex-grow: 2;
+}
+
+#clock {
+    width: 100%;
+    max-width: 15rem;
+}
+
+/* #bells {
+    stroke: #231f20;
+    stroke: #231f20;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 10px;
+} */
+
+#alarm-bells.ring {
+    animation: .2s infinite alternate ring;
+    transition: stroke .1s linear;
+}
+
+@keyframes ring {
+    0%{
+        transform: rotate(-5deg);
+        stroke: darkmagenta;
+    }
+    50%{
+        transform: rotate(5deg);
+        stroke: darkorange;
+    }
+    100%{
+        transform: rotate(-5deg);
+        stroke: orangered;
+    }
+}
+
+/* ------------------------------------------- */
+
+.comic-halftone-bg {
+    --dotSize: 0.2rem;
+  --bgSize: 1.35rem;
+  --bgPosition: calc(var(--bgSize) / 2);
+  
+  background-image: radial-gradient(
+      circle at center,
+      #fdb455 var(--dotSize),
+      transparent 0
+    ), radial-gradient(circle at center, #fdb455 var(--dotSize), transparent 0);
+  background-size: var(--bgSize) var(--bgSize);
+  background-position: 0 0, var(--bgPosition) var(--bgPosition);
+  z-index: -1;
+  background-color: #FFFEC4;
+  }

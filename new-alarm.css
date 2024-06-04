@@ -1,0 +1,303 @@
+.alarm-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.neo-button {
+    border: 4px solid black;
+    border-radius: 1rem;
+    font-size: 1.7rem;
+    padding: .7rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    background-color: #f6d3ff;
+}
+
+.neo-button:hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+/* ----------------------------Carousel------------------------ */
+
+.carousel-container {
+    position: relative;
+    border: 2px solid black;
+    border-radius: 1rem;
+    padding: 0rem .5rem 1rem;
+    width: min-content;
+    margin: auto;
+    background-color: #F8EDFF;
+}
+
+.carousel-container .heading {
+    padding: .2rem .5rem;
+    display: inline-block;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: antiquewhite;
+    border-radius: .5rem;
+    border: 2px solid black;
+    font-size: 1rem;
+    transition: all .1s ease-out;
+}
+
+.carousel-container:hover .heading {
+    transform: scale(1.2) translate(-50%, -50%);
+}
+
+.alarm-menu .carousel-container .carousel {
+    background-color: transparent;
+    margin-top: 2rem;
+    padding-bottom: .2rem;
+}
+
+.alarm-menu .carousel-container .carousel span {
+    background-color: transparent;
+    margin-left: .5rem;
+    padding: .2rem .8rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    text-align: center;
+    background-color: #F5F7F8;
+}
+
+.alarm-menu .carousel-container .carousel span:first-child {
+    margin-left: 0;
+}
+
+/* -----------------------Minutes Carousel----------------------- */
+
+.slide-btn {
+    position: absolute;
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 2rem;
+    transform: scale(1.2);
+}
+
+.slide-btn img {
+    width: 100%;
+}
+
+.slide-left {
+    left: -1.2rem;
+}
+
+.slide-right {
+    right: -1.2rem;
+}
+
+.alarm-menu .carousel-container.minute {
+    width: 100%;
+    overflow-y: visible;
+}
+
+.alarm-menu .carousel-container.minute .slide-btn {
+    cursor: pointer;
+}
+
+.alarm-menu .carousel-container.minute .slide-btn:hover {
+    transform: scale(1.5);
+}
+
+.alarm-menu .carousel-container.minute .carousel-envelope {
+    overflow-x: hidden;
+    overflow-y: visible;
+    background-color: transparent;
+}
+
+.alarm-menu .carousel-container.minute .carousel {
+    display: flex;
+    justify-content: space-between;
+    overflow-y: visible;
+}
+
+.alarm-menu .carousel-container.minute .carousel span {
+    padding: .2rem;
+    width: 2.5rem;
+    text-align: center;
+}
+
+/* ------------------------------------------------ */
+
+.alarm-menu .carousel span {
+    cursor: pointer;
+}
+
+.alarm-menu .carousel span:hover {
+    box-shadow: 3px 3px 0px black;
+}
+
+.alarm-menu .carousel span.selected {
+    background-color: aliceblue;
+    box-shadow: 3px 3px 0px black;
+}
+
+/* ---------------------------------------------- */
+
+.final div .svg {
+    width: 2rem;
+    background-color: transparent;
+}
+
+.final div:hover {
+    background-color: black;
+}
+
+.cancel:hover .svg {
+    fill: tomato;
+}
+
+.ok:hover .svg {
+    fill:chartreuse
+}
+
+/* ----------------------Zone------------------------ */
+
+.zone, .final {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.zone div:not(.ampm):not(.name), .final div {
+    border: 2px solid black;
+    border-radius: .8rem;
+    font-size: 1.2rem;
+    padding: .5rem .8rem;
+    cursor: pointer;
+}
+
+.zone div.time {
+    cursor: default!important;
+    font-family: "Rubik Mono One", monospace;
+    background-color: #FFBF00;
+}
+
+.zone .time span {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 300;
+}
+
+
+.zone div:not(.time):not(.ampm):not(.name):hover {
+    box-shadow: 5px 5px 0px black;
+}
+
+.zone .ampm {
+    display: flex;
+    gap: 1rem;
+}
+
+.zone .ampm .am-pm-zone {
+    background-color: #F5F7F8;
+}
+
+.zone .ampm .am-pm-zone.selected {
+    background-color: aliceblue;
+    box-shadow: 3px 3px 0px black;
+}
+
+.zone .name.carousel-container {
+    margin: 0;
+}
+
+.zone .name.carousel-container input {
+    border: 1px solid grey;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    padding: .5rem;
+    outline: none;
+    margin-top: 1.5rem;
+}
+
+.zone .name.carousel-container input:focus {
+    box-shadow: 5px 5px 0px black;
+} 
+
+/* ---------------------modal-------------------- */
+.modal-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.modal {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    padding: 4rem 6rem;
+    position: absolute;
+    inset: 0;
+    width: min-content;
+    height: min-content;
+    margin: auto auto;
+    transition: all 1s ease-out;
+    background-color: aliceblue;
+    z-index: 2;
+}
+
+.modal .clock-div {
+    width: 10rem;
+    height: 10rem;
+}
+
+.modal .svg{
+    width: 7rem;
+    transition: all 1s ease-out;
+}
+
+.modal.modal-effects .svg{
+    width: 10rem;
+}
+
+.modal-effects {
+    box-shadow: 20px 20px 0px black;
+}
+
+.modal .message{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    min-width: 20rem;
+}
+
+.modal .buttons{
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.modal .buttons div{
+    padding: .5rem 1rem;
+    border: 2px solid black;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.modal .buttons div:hover{
+    box-shadow: 5px 5px 0px black;
+}

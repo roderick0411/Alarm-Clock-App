@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alarm Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./src/Icons/alarm-favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="alarms.css" />
+    <link rel="stylesheet" href="new-alarm.css" />
+  </head>
+  <body>
+    <main>
+      <div class="set-alarm">
+        <!-- =------------------------------------------------------------------ -->
+
+        <button id="alarm-trigger" style="display: none">Alarm trigger</button>
+
+        <!-- ------------------------------------------------------------------ -->
+
+        <div class="clock-and-time">
+          <svg
+            id="clock"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 146.54 126.54"
+          >
+            <circle
+              id="circle"
+              cx="73.27"
+              cy="73.27"
+              r="48"
+              style="
+                fill: #feae6f;
+                stroke: #231f20;
+                stroke-width: 5px;
+                stroke-miterlimit: 10;
+              "
+            />
+            <circle
+              id="inner-circle"
+              cx="73.27"
+              cy="73.27"
+              r="28.27"
+              style="fill: #dd5746; stroke-miterlimit: 10"
+            />
+            <g id="bells" class="hidden" transform-origin="73.27 73.27">
+              <line id="bell-left" x1="17.12" y1="37.1" x2="38.21" y2="16.67" />
+              <line
+                id="bell-right"
+                x1="130.04"
+                y1="37.1"
+                x2="108.96"
+                y2="16.67"
+              />
+            </g>
+            <g id="hands">
+              <line
+                id="minutes-hand"
+                transform-origin="73.27 73.27"
+                x1="73.27"
+                y1="73.27"
+                x2="73.27"
+                y2="40"
+                style="
+                  fill: none;
+                  stroke: #231f20;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 5px;
+                "
+              />
+              <line
+                id="hours-hand"
+                transform-origin="73.27 73.27"
+                x1="73.27"
+                y1="73.27"
+                x2="73.27"
+                y2="47"
+                style="
+                  fill: none;
+                  stroke: #231f20;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 5px;
+                "
+              />
+              <line
+                id="seconds-hand"
+                transform-origin="73.27 73.27"
+                x1="73.27"
+                y1="73.27"
+                x2="73.27"
+                y2="38.8"
+                style="
+                  fill: none;
+                  stroke: #231f20;
+                  stroke-linecap: round;
+                  stroke-linejoin: round;
+                  stroke-width: 2px;
+                "
+              />
+            </g>
+          </svg>
+          <div class="zone hidden">
+            <div class="name carousel-container">
+              <span class="heading">Name</span>
+              <input type="text" />
+            </div>
+            <div class="ampm"></div>
+          </div>
+        </div>
+        <button class="new-alarm neo-button">New Alarm</button>
+        <div class="alarm-menu hidden">
+          <div class="hour carousel-container">
+            <span class="heading">Hour</span>
+            <div class="carousel"></div>
+          </div>
+          <div class="minute carousel-container">
+            <span class="heading">Minute</span>
+            <div class="slide-left slide-btn">
+              <img src="./src/Icons/left-arrow-svg.svg" alt="" />
+            </div>
+            <div class="slide-right slide-btn">
+              <img src="./src/Icons/right-arrow-svg.svg" alt="" />
+            </div>
+            <div class="carousel-envelope">
+              <div class="carousel"></div>
+            </div>
+          </div>
+          <div class="final"></div>
+        </div>
+      </div>
+      <div class="alarms"></div>
+    </main>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
