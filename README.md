@@ -8,5 +8,5 @@ A simple app to add, remove & modify alarms. This is a project I made as a part 
 
 ## Demo
 
-[Youtube link]([readme.com](https://youtu.be/XOCA8aWwRBI))
+[Youtube link](https://youtu.be/XOCA8aWwRBI)
 
