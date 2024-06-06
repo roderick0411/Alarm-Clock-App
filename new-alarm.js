@@ -81,16 +81,17 @@ function addAlarm(mode, globalVariables, editAlarmId) {
   const repeatIdx = globalVariables.alarms.findIndex(
     (element) => element.id === id
   );
+  // console.log(`repeatIdx: ${repeatIdx}  |  mode: ${mode}`);
   //   if not and mode is New
   if ((repeatIdx === -1) & (mode === "new")) {
     globalVariables.alarms.push(alarm);
     showThumbsUp(globalVariables, "Done");
   } // if does and mode is New
-  if ((repeatIdx !== -1) & (mode === "new")) {
+  else if ((repeatIdx !== -1) & (mode === "new")) {
     replaceAlarm("new", globalVariables, alarm, repeatIdx);
   }
   //   if not and mode is Edit
-  if ((repeatIdx === -1) & (mode === "edit")) {
+  else if ((repeatIdx === -1) & (mode === "edit")) {
     // replace the previous alarm with new
     const idx = globalVariables.alarms.findIndex(
       (element) => element.id === editAlarmId
@@ -99,7 +100,8 @@ function addAlarm(mode, globalVariables, editAlarmId) {
     showThumbsUp(globalVariables, "Done");
   }
   //   if does and mode is Edit
-  if ((repeatIdx != -1) & (mode === "edit")) {
+  // if just the name or nothing at all is changed
+  else if ((repeatIdx != -1) & (mode === "edit") & (id === editAlarmId)) {
     // check if no change was made to the alarm,
     const repeatAlarm = globalVariables.alarms[repeatIdx];
     if (
@@ -109,13 +111,20 @@ function addAlarm(mode, globalVariables, editAlarmId) {
       (repeatAlarm.name === alarm.name)
     ) {
       showThumbsUp(globalVariables, "No change");
-    } else {
-      replaceAlarm("edit", globalVariables, alarm, repeatIdx, editAlarmId);
+    } else if (
+      (repeatAlarm.hour === alarm.hour) &
+      (repeatAlarm.minute === alarm.minute) &
+      (repeatAlarm.zone === alarm.zone)
+    ) {
+      globalVariables.alarms.splice(repeatIdx, 1, alarm);
+      showThumbsUp(globalVariables, "Done");
     }
     // replace the previous alarm with new
     // const idx = alarms.findIndex((element) => element.id === editAlarmId);
     // alarms.splice(idx, 1, alarm);
     // showThumbsUp(alarms, clockIntervalId, currentStrip);
+  } else {
+    replaceAlarm("edit", globalVariables, alarm, repeatIdx, editAlarmId);
   }
 }
 

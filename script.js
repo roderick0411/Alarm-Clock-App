@@ -100,6 +100,9 @@ globalVariables.alarms.forEach((alarm) => {
 document
   .querySelector(".set-alarm .new-alarm")
   .addEventListener("click", function () {
+    globalVariables.newAlarmData.hour = 12;
+    globalVariables.newAlarmData.minute = 0;
+    globalVariables.newAlarmData.zone = "AM";
     setNewAlarmMode("new", globalVariables);
   });
 
